@@ -1,0 +1,27 @@
+.about {
+  background-color: #fff;
+  padding-top: 50px;
+  @media (min-width: 992px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  @media (min-width: 1200px) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .stripes {
+    margin-bottom: 32px;
+  }
+  &__text {
+    font-size: 14px;
+    text-align: center;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  &__wrapper {
+    width: 100%;
+    max-width: 576px;
+    margin: 0 auto;
+  }
+}

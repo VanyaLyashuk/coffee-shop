@@ -1,0 +1,99 @@
+.section {
+  &__toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+    @media (min-width: 576px) {
+      flex-direction: row;
+      justify-content: center !important;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 768px) {
+      flex-wrap: nowrap !important;
+      justify-content: space-between !important;
+    }
+    @media (min-width: 992px) {
+      width: 736px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 50px;
+    }
+    @media (min-width: 1200px) {
+      width: 780px;
+      margin-bottom: 60px;
+    }
+  }
+  .input-group,
+  .btn-group {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    @media (min-width: 768px) {
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+  }
+  .input-group {
+    width: 235px !important;
+    @media (min-width: 768px) {
+      justify-content: start;
+      width: 100% !important;
+    }
+  }
+  .btn-group {
+    width: 235px;
+    @media (min-width: 768px) {
+      justify-content: flex-end;
+      width: 100% !important;
+    }
+  }
+  &__label {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-right: 19px;
+    @media (min-width: 768px) {
+      display: inline-block;
+      width: auto;
+    }
+  }
+  &__search-input {
+    font-size: 12px !important;
+    text-align: center;
+    background: #FFFFFF;
+    border-radius: 4px !important;
+    border: none !important;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.50)
+    }
+    @media (min-width: 768px) {
+      flex: 0 0 180px !important;
+    }
+  }
+  .btn {
+    flex: 0 0 75px !important;
+    display: block;
+    font-size: 12px;
+    padding: 6px 5px;
+    background-color: #fff;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    color: #000;
+    border-radius: none !important;
+    border: none;
+    &:hover,
+    &:focus,
+    &.active {
+      background-color: #333;
+      color: #fff;
+    }
+    &:first-of-type {
+      border-top-left-radius: 4px !important;
+      border-bottom-left-radius: 4px !important;
+    }
+  }
+}
