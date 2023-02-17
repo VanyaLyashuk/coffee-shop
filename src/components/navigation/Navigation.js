@@ -11,7 +11,7 @@ const Navigation = ({ showCurrentPage }) => {
         <img 
           data-page="home"
           className="header__logo" 
-          src="/images/icons/light-logo.svg" alt="logo" />
+          src={process.env.PUBLIC_URL + "/images/icons/light-logo.svg"} alt="logo" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

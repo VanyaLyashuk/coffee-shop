@@ -12,10 +12,10 @@ const ProductInfo = ({id, products}) => {
           <div className="product-info__box">
             <picture>
               <source 
-                srcSet={`/images/products/${currentItem.img}.webp`} 
+                srcSet={process.env.PUBLIC_URL + `/images/products/${currentItem.img}.webp`} 
                 type="image/webp"/>
               <img 
-                src={`images/products/${currentItem.img}.jpg`} 
+                src={process.env.PUBLIC_URL + `images/products/${currentItem.img}.jpg`} 
                 alt={currentItem.img} 
                 className="product-info__img" />
             </picture>

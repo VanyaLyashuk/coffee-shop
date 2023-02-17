@@ -10,7 +10,7 @@ import ProductInfo from '../productInfo/ProductInfo';
 
 
 function App({products}) {
-  const [page, setPage] = useState('our-coffee');
+  const [page, setPage] = useState('home');
   const [prodFilter, setProdFilter] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [openedItem, setOpenedItem] = useState('');

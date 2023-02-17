@@ -15,7 +15,7 @@ function Footer ({ showCurrentPage }) {
               onClick={(e) => showCurrentPage(e)} >
               <img 
                 data-page="home"
-                src="/images/icons/dark-logo.svg" 
+                src={process.env.PUBLIC_URL + "/images/icons/dark-logo.svg"} 
                 alt="logo" 
                 className="footer__logo" />
             </a>

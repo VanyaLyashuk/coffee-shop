@@ -9,8 +9,8 @@ const ProductCard = ({id, imgSrc, price, title, country, onProductView}) => {
       <div 
         className="card-box">
         <picture>
-          <source srcSet={imgSrc+'.webp'} type="image/webp"/>
-          <Card.Img variant="top" src={imgSrc+'.jpg'} />
+          <source srcSet={process.env.PUBLIC_URL + imgSrc + '.webp'} type="image/webp"/>
+          <Card.Img variant="top" src={process.env.PUBLIC_URL + imgSrc + '.jpg'} />
         </picture>
       </div>
       <Card.Body>

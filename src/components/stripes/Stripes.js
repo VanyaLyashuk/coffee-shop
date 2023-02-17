@@ -9,7 +9,7 @@ const Stripes = ({lightness, blockClassPrefix}) => {
     <div className={`stripes ${lightnessClass}`} >
       <img 
         className={`${blockClassPrefix}__beans beans`}
-        src={`/images/icons/${iconName}.svg`} 
+        src={process.env.PUBLIC_URL + `/images/icons/${iconName}.svg`} 
         alt="coffee beans" />
     </div>
   );

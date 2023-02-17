@@ -10,8 +10,13 @@ const Info = ({page}) => {
   return (
     <div className="info">
       <picture>
-        <source srcSet={`/images/${infoImg}.webp`} type="image/webp"/>
-        <img src={`/images/${infoImg}.jpg`} alt="girl with cup of coffee" className="info__img" />
+        <source 
+          srcSet={process.env.PUBLIC_URL + `/images/${infoImg}.webp`} 
+          type="image/webp"/>
+        <img 
+          src={process.env.PUBLIC_URL + `/images/${infoImg}.jpg`} 
+          alt="girl with cup of coffee" 
+          className="info__img" />
       </picture>
       <div className="info__inner">
         <h2 className="info__title title">{infoTitle}</h2>
