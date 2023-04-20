@@ -1,79 +1,121 @@
-import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.scss';
-import Promo from '../promo/Promo';
-import About from '../about/About';
-import OurBest from '../ourBest/OurBest';
-import Footer from '../footer/Footer';
-import Section from '../section/Section';
-import ProductInfo from '../productInfo/ProductInfo';
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { MainPage, OurCoffee, YourPleasure, Page404, ProductInfo} from "../pages";
+import Promo from "../promo/Promo";
+import Footer from "../footer/Footer";
 
+import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function App({products}) {
-  const [page, setPage] = useState('home');
-  const [prodFilter, setProdFilter] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [openedItem, setOpenedItem] = useState('');
+const App = ({ products }) => {
+  const [prodFilter, setProdFilter] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const onProductView = id => {
-    setOpenedItem(id);
-  }
-
-  const showCurrentPage = (e) => {
-    setPage(e.target.getAttribute('data-page'));
-    setOpenedItem('');
-  };
-
-  const onUpdateSearch = term => {
+  const onUpdateSearch = (term) => {
     setSearchTerm(term);
-  }
+  };
 
   const onSearch = (items, term) => {
     if (term.length === 0) {
       return items;
     }
 
-    return items.filter(item => {
+    return items.filter((item) => {
       return item.name.indexOf(term) > -1;
     });
-  }
+  };
 
   const onFilterChange = (e) => {
     setProdFilter(e.target.textContent);
   };
 
   const filteredProducts = (items, filter) => {
-    return prodFilter !== '' ? 
-      items.filter(item => {
-        return item.country === filter
-      }) : items;
+    return prodFilter !== ""
+      ? items.filter((item) => {
+          return item.country === filter;
+        })
+      : items;
   };
-  
 
-  const homeContent = page === 'home' ? 
-                      <><About/> <OurBest 
-                                  products={products}
-                                  onProductView={onProductView} /></> : null;
-  const mainContent = (page === 'our-coffee' || page === 'your-pleasure') ? 
-                      <Section 
-                        page={page} 
-                        onProductView={onProductView}
-                        products={filteredProducts(onSearch(products, searchTerm), prodFilter)} 
-                        onFilterChange={onFilterChange}
-                        onUpdateSearch={onUpdateSearch}
-                        searchTerm={searchTerm} /> : null;
   return (
     <>
-      <Promo
-        page={page} 
-        showCurrentPage={showCurrentPage} />
-      <main className="main">
-        {openedItem !== '' ? 
-          <ProductInfo id={openedItem} products={products} /> : homeContent || mainContent}
-      </main>
-      <Footer showCurrentPage={showCurrentPage} />
+      <Router>
+        <Routes>
+          <Route path="/" element={<MainPage products={products} />} />
+          <Route
+            path="/:prodId"
+            element={
+              <>
+                <Promo page="home"/>
+                <ProductInfo products={products}/>
+              </>
+            }
+          />
+          {/* <Route path="/" element={<MainPage products={products} />}>
+            <Route
+              path=":prodId"
+              element={
+                <>
+                  <Promo page="home"/>
+                  <ProductInfo products={products}/>
+                </>
+              }
+            />
+          </Route> */}
+          <Route
+            path="/our-coffee"
+            element={
+              <OurCoffee
+                page="our-coffee"
+                products={filteredProducts(
+                  onSearch(products, searchTerm),
+                  prodFilter
+                )}
+                onFilterChange={onFilterChange}
+                onUpdateSearch={onUpdateSearch}
+                searchTerm={searchTerm}
+              />
+            }
+          />
+          <Route
+            path="/our-coffee/:prodId"
+            element={
+              <>
+                <Promo page="our-coffee"/>
+                <ProductInfo id={1} products={products}/>
+              </>
+            }
+          />
+          <Route
+            path="/your-pleasure"
+            element={
+              <YourPleasure
+                page="your-pleasure"
+                products={filteredProducts(
+                  onSearch(products, searchTerm),
+                  prodFilter
+                )}
+                onFilterChange={onFilterChange}
+                onUpdateSearch={onUpdateSearch}
+                searchTerm={searchTerm}
+              />
+            }
+          />
+          <Route
+            path="/your-pleasure/:prodId"
+            element={
+              <>
+                <Promo page="our-coffee"/>
+                <ProductInfo id={1} products={products}/>
+              </>
+            }
+          />
+          <Route path="*" element={<Page404 />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
   );
-}
+};
 
 export default App;

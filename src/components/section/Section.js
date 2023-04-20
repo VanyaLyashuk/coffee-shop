@@ -3,17 +3,22 @@ import Toolbar from '../toolbar/Toolbar';
 import Info from '../info/Info';
 import { Container } from 'react-bootstrap';
 import './Section.scss';
+import { Link } from "react-router-dom";
 
-const Section = ({page, products, onProductView, onFilterChange, onUpdateSearch, searchTerm}) => {
+const Section = ({page, products, onFilterChange, onUpdateSearch, searchTerm}) => {
   const productsList = products.map(product => (
-    <ProductCard 
-      id={product.id}
-      imgSrc={`/images/products/${product.img}`}
-      title={product.name}
-      price={product.price}
-      country={product.country}
-      key={`key-${product.id}`}
-      onProductView={onProductView} />
+    <Link 
+      to={`/${page}/${product.id}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+      key={`key-${product.id}`}>
+      <ProductCard 
+        id={product.id}
+        imgSrc={`/images/products/${product.img}`}
+        title={product.name}
+        price={product.price}
+        country={product.country}
+      />
+    </Link>
   ));
 
   return (

@@ -1,11 +1,10 @@
 import { Card } from 'react-bootstrap';
 import './ProductCard.scss';
 
-const ProductCard = ({id, imgSrc, price, title, country, onProductView}) => {
+const ProductCard = ({id, imgSrc, price, title, country}) => {
   return (
     <Card 
-      id={id}
-      onClick={() => onProductView(id)} >
+      id={id}>
       <div 
         className="card-box">
         <picture>
