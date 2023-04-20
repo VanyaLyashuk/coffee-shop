@@ -51,7 +51,7 @@ const App = ({ products }) => {
               </>
             }
           />
-          <Route
+          <Route 
             path="/our-coffee"
             element={
               <OurCoffee
@@ -66,7 +66,7 @@ const App = ({ products }) => {
               />
             }
           />
-          <Route
+          <Route 
             path="/our-coffee/:prodId"
             element={
               <>
@@ -75,7 +75,7 @@ const App = ({ products }) => {
               </>
             }
           />
-          <Route
+          <Route 
             path="/your-pleasure"
             element={
               <YourPleasure
@@ -90,7 +90,7 @@ const App = ({ products }) => {
               />
             }
           />
-          <Route
+          <Route 
             path="/your-pleasure/:prodId"
             element={
               <>
