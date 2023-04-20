@@ -3,8 +3,8 @@ import { Navbar, Nav } from "react-bootstrap";
 import "./Navigation.scss";
 
 const Navigation = () => {
-  const clazzNames = ({ isActive }) =>
-    isActive ? "nav-link nav-link--active" : "nav-link";
+  const clazzNames = ({isActive}) => isActive ? "nav-link nav-link--active" : "nav-link";
+  
   return (
     <Navbar expand="lg" variant="dark">
       <Link to="/" className="navbar-brand">

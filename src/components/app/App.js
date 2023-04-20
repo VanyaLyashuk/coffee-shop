@@ -51,17 +51,6 @@ const App = ({ products }) => {
               </>
             }
           />
-          {/* <Route path="/" element={<MainPage products={products} />}>
-            <Route
-              path=":prodId"
-              element={
-                <>
-                  <Promo page="home"/>
-                  <ProductInfo products={products}/>
-                </>
-              }
-            />
-          </Route> */}
           <Route
             path="/our-coffee"
             element={
@@ -82,7 +71,7 @@ const App = ({ products }) => {
             element={
               <>
                 <Promo page="our-coffee"/>
-                <ProductInfo id={1} products={products}/>
+                <ProductInfo products={products}/>
               </>
             }
           />
@@ -106,7 +95,7 @@ const App = ({ products }) => {
             element={
               <>
                 <Promo page="our-coffee"/>
-                <ProductInfo id={1} products={products}/>
+                <ProductInfo products={products}/>
               </>
             }
           />
